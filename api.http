@@ -1,8 +1,26 @@
+GET http://localhost:3333/events/28768b81-9535-46f0-a34b-30929712a76a
+
+###
+
 POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Unite Submit",
-  "details": "Um evento",
-  "maximumAttendees": 100
+  "title": "Novo evento 2",
+  "details": null,
+  "maximumAttendees": 1
 }
+
+###
+
+POST http://localhost:3333/events/28768b81-9535-46f0-a34b-30929712a76a/attendees
+Content-Type: application/json
+
+{
+  "name": "Diego Fernandes",
+  "email": "diego2@rocketseat.com.br" 
+}
+
+###
+
+GET http://localhost:3333/attendees/4/badge
