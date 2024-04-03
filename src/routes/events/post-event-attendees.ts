@@ -1,11 +1,11 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { prisma } from "../lib/prisma";
-import { BadRequest } from "./_errors/bad-request";
+import { prisma } from "../../lib/prisma";
+import { BadRequest } from "../_errors/bad-request";
 
-export async function registerForEvent(app: FastifyInstance) {
-  app.withTypeProvider<ZodTypeProvider>().post('/events/:eventId/attendees', {
+export async function postEventAttendees(app: FastifyInstance) {
+  app.withTypeProvider<ZodTypeProvider>().post('/:eventId/attendees', {
     schema:{
       summary: 'Register an attendee',
       tags: ['Attendees'],

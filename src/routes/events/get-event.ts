@@ -1,11 +1,11 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { prisma } from "../lib/prisma";
-import { BadRequest } from "./_errors/bad-request";
+import { prisma } from "../../lib/prisma";
+import { BadRequest } from "../_errors/bad-request";
 
 export async function getEvent(app: FastifyInstance) {
-  app.withTypeProvider<ZodTypeProvider>().get('/events/:eventId', {
+  app.withTypeProvider<ZodTypeProvider>().get('/:eventId', {
     schema: {
       summary: 'Get an event',
       tags: ['Events'],
