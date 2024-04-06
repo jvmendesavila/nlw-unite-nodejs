@@ -22,3 +22,13 @@ jobs:
 
       - name: Build docker image
         run: docker build -t joaovmendes/nlw-service-passin:${{ steps.generate_sha.outputs.sha }} .
+
+      - name: Log into the container registry
+        uses: docker/login-action@v3
+        with: 
+          username: ${{ secrets.DOCKERHUB_NLW_UNITE_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_NLW_UNITE_TOKEN }}
+
+      - name: Push image
+        run: |
+          docker push joaovmendes/nlw-service-passin:${{ steps.generate_sha.outputs.sha }}
