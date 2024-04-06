@@ -11,14 +11,14 @@ jobs:
     runs-on: unbutu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Generate sha
-        id: generate_sha
-        run: |
-          SHA=$(echo $GITHUB_SHA | head -c7)
-          echo "sha=$SHA" >> $GITHUB_OUTPUT
+    - name: Generate sha
+      id: generate_sha
+      run: |
+        SHA=$(echo $GITHUB_SHA | head -c7)
+        echo "sha=$SHA" >> $GITHUB_OUTPUT
 
-      - name: Build docker image
-        run: docker build -t joaovmendes/nlw-service-passin:${{ steps.generate_sha.outputs.sha }} .
+    - name: Build docker image
+      run: docker build -t joaovmendes/nlw-service-passin:${{ steps.generate_sha.outputs.sha }} .
