@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-push:
@@ -38,7 +38,7 @@ jobs:
       - name: Update image tag
         uses: fjogeleit/yaml-update-action@main
         with: 
-          branch: main
+          branch: master
           valueFile: 'deploy/values.yaml'
           propetyPath: 'image.tag'
           value: ${{ steps.generate_sha.outputs.sha }}
