@@ -4,6 +4,7 @@ import { AttendeesRoutes } from "./attendees/_index"
 import { jsonSchemaTransform, serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import fastifySwaggerUi from "@fastify/swagger-ui"
 import fastifySwagger from "@fastify/swagger"
+import { getHealth } from "./_defaults/get-health"
 
 export async function routes(app: FastifyInstance) {
   // Add schema validator and serializer
@@ -28,6 +29,9 @@ export async function routes(app: FastifyInstance) {
   app.register(fastifySwaggerUi, {
     routePrefix: '/docs',
   })
+
+  // Health Check 
+  app.register(getHealth)
 
   // Events 
   app.register(EventsRoutes, { prefix: '/events' })
