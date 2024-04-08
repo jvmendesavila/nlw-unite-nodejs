@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: joaovmendes/nlw-service-passin
   pullPolicy: Always
-  tag: 1f2984e
+  tag: '1210737'
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
